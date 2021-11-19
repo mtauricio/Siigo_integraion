@@ -54,7 +54,7 @@ class ServiceSQController extends Controller
             }
             
          }
-         return $response;
+         return $faileds;
 
     }
     public function datesForService( $client, $invoice)
@@ -87,8 +87,8 @@ class ServiceSQController extends Controller
             "hour" => "08:00",
             "date" => $tumorrow ,
             // "load_time" => 0,
-            "start_time_delivery" => "10:00",
-            "end_time_delivery" => "12:00",
+            "start_time_delivery" => "08:00",
+            "end_time_delivery" => "18:00",
             
             "service_order" => $invoice['name'],
             "type_service" => [

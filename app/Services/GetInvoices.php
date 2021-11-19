@@ -18,7 +18,7 @@ class GetInvoices
             'Content-Type' => 'application/json',
             'Authorization' => $token
         ])->get(env('URL_API_SIIGO').'v1/invoices', [
-            'created_start' => '2021-11-18'
+            'created_start' => $today
         ]);
         return $response;
     }

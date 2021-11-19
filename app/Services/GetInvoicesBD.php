@@ -10,7 +10,7 @@ class GetInvoicesBD
 
     public function execute()
     {
-        $invoiceInBd = Invoices::where('status', '=', false)->take(1)->get();
+        $invoiceInBd = Invoices::where('status', '=', false)->take(4)->get();
         return $invoiceInBd;
     }
 
