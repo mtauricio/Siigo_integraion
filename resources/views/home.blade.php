@@ -33,9 +33,20 @@
         $.ajax({
             type: "GET",
             url: "{{route('saveInvoices')}}",
+            beforeSend: function () {
+                Swal.fire({
+                    title: 'Un momento por favor',
+                    html: 'Procesando facturas...',// add html attribute if you want or remove
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading()
+                    },
+                });
+            },
             success: function (response) {
+                Swal.close();
                 if (response == true) {
-                    createService();
+                    // createService();
                 } else {
                     alert('Algo falló por favor intente de nuevo');
                 }
@@ -47,7 +58,18 @@
         $.ajax({
             type: "POST",
             url: "{{route('createService')}}",
+            beforeSend: function () {
+                Swal.fire({
+                    title: 'Un momento por favor',
+                    html: 'Creando los servicios...',// add html attribute if you want or remove
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading()
+                    },
+                });
+            },
             success: function (response) {
+                Swal.close();
                 if (response == 0) {
                     Swal.fire(
                         'Excelente!',

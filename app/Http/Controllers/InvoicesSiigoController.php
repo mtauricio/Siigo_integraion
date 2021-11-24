@@ -34,10 +34,6 @@ class InvoicesSiigoController extends Controller
         $invoices = $this->listInvoices();
         // return $invoices;
         $save = $this->saveInvoices->execute($invoices);
-        if ($save) {
-            return true;
-        }else {
-            return false;
-        }
+        return $save;
     }
 }

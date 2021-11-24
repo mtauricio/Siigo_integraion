@@ -13,9 +13,9 @@ public function execute($invoices)
 {
     // $invoices = $this->listInvoices();
     try {
-        foreach ($invoices['results'] as $invoicesiigo) {
+        foreach ($invoices as $invoicesiigo) {
             $invoiceInBd = Invoices::where('id_siigo', '=', $invoicesiigo['id'])->get();
-            // var_dump('<pre>'.$invoiceInBd);
+         
             if($invoiceInBd == '[]'){
                 $invoice = new Invoices;
                 $invoice->id_siigo = $invoicesiigo['id'];
